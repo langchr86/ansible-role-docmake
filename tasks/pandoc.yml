@@ -1,0 +1,21 @@
+---
+
+- name: Install pandoc dependencies
+  become: yes
+  package: name="{{ item }}"
+  with_items:
+    - libc6
+    - libgmp10
+    - zlib1g
+
+- name: Check if pandoc already installed
+  command: which pandoc
+  register: which_pandoc
+  changed_when: False
+  failed_when: False
+
+- name: "Install pandoc {{ pandoc_version }}"
+  become: yes
+  apt:
+    deb: https://github.com/jgm/pandoc/releases/download/{{ pandoc_version }}/pandoc-{{ pandoc_version }}-1-amd64.deb
+  when: which_pandoc.rc != 0

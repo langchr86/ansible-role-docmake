@@ -1,0 +1,14 @@
+---
+
+- name: Install additional latex tools
+  become: yes
+  package: name="{{ item }}"
+  with_items:
+    - texlive-plain-generic
+    - texlive-fonts-extra
+    - texlive-lang-english
+    - texlive-lang-german
+    - texlive-science
+    - texlive-xetex
+    - texlive-extra-utils
+    - latexmk

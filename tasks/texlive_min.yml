@@ -1,0 +1,14 @@
+---
+
+- name: Install minimal needed latex tools
+  become: yes
+  package: name="{{ item }}"
+  with_items:
+    - texlive
+    - texlive-pictures
+    - texlive-latex-extra
+
+- name: Install latin modern latex packet
+  become: yes
+  package:
+    name: lmodern

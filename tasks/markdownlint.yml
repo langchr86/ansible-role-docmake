@@ -1,0 +1,20 @@
+---
+
+- include_tasks: tasks/nodejs.yml
+
+- command: which npm
+  register: which_npm
+  changed_when: False
+
+- name: Install npm for markdownlint
+  become: yes
+  package:
+    name: npm
+  when: which_npm.rc != 0
+
+# https://github.com/igorshubovych/markdownlint-cli
+- name: Install markdownlint
+  become: yes
+  npm:
+    name: markdownlint-cli
+    global: yes

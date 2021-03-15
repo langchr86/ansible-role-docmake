@@ -1,0 +1,21 @@
+---
+
+# Automatic evaluated variables.
+# Can be altered if role is not executed by the user that will use the features.
+
+
+# Additional features that can be installed.
+pandoc: off
+drawio: off
+gpp: off
+markdownlint: off
+metropolis: off
+texlive_additional: off
+texlive_min: off
+tikz_uml: off
+
+additional_packages: []   # list of arbitrary other tools
+
+nodejs_version: "10"
+drawio_version: "14.1.8"
+pandoc_version: "2.12"
