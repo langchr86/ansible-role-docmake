@@ -1,0 +1,34 @@
+name: ansible_run
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        distro:
+          - ubuntu-focal
+
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: System information
+        run: |
+          uname -a
+          lsb_release -a
+          sudo docker --version
+
+      - name: Prepare and run container
+        run: |
+          sudo ./testing/1_create.sh ${{matrix.distro}}
+          sudo ./testing/2_run.sh ${{matrix.distro}}
+
+      - name: Test ansible
+        run: |
+          sudo docker exec test-container /etc/ansible/roles/ansible-role-docmake/testing/4_test.sh --idempotence
+
+      - name: Cleanup
+        run: |
+          sudo ./testing/5_remove.sh
