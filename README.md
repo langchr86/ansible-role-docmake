@@ -6,6 +6,47 @@ ansible-role-docmake
 Companion ansible role for [docmake](https://github.com/langchr86/docmake) to install needed tools.
 
 
+Role Variables
+--------------
+
+All variable that may be manipulated by the user are collected in [`defaults/main.yml`](defaults/main.yml) .
+See the inline description there.
+
+
+Dependencies
+------------
+
+This role is completely self-containing and has no dependencies to other ansible roles.
+
+
+Usage
+-----
+
+> If you just want to use these tools without creating your own playbook etc.
+> you have to just install ansible and then run [`run_local.sh`](run_local.sh).
+
+See [`testing/playbook.yml`](testing/playbook.yml) for example playbook.
+
+To be able to install the role you can use the command:
+
+~~~
+ansible-galaxy install git+https://github.com/langchr86/ansible-role-docmake.git,master
+~~~
+
+or you define it in [`requirements.yml`](https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-multiple-roles-from-a-file):
+
+~~~
+- src: 'https://github.com/langchr86/ansible-role-docmake.git'
+  version: 'master'
+~~~
+
+and then install with:
+
+~~~
+ansible-galaxy install -r requirements.yml
+~~~
+
+
 License
 -------
 
