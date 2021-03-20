@@ -37,6 +37,18 @@
   args:
     creates: "{{ cmake_install_prefix.stdout }}/lib/cmake/docmake/helpers.cmake"
 
+- import_tasks: tasks/texlive_min.yml
+  when: texlive_min
+
+- import_tasks: tasks/texlive_additional.yml
+  when: texlive_additional
+
+- import_tasks: tasks/metropolis.yml
+  when: metropolis
+
+- import_tasks: tasks/tikz_uml.yml
+  when: tikz_uml
+
 - import_tasks: tasks/drawio.yml
   when: drawio
 
@@ -46,20 +58,8 @@
 - import_tasks: tasks/markdownlint.yml
   when: markdownlint
 
-- import_tasks: tasks/metropolis.yml
-  when: metropolis
-
 - import_tasks: tasks/pandoc.yml
   when: pandoc
-
-- import_tasks: tasks/texlive_min.yml
-  when: texlive_min
-
-- import_tasks: tasks/texlive_additional.yml
-  when: texlive_additional
-
-- import_tasks: tasks/tikz_uml.yml
-  when: tikz_uml
 
 - name: Additional packages
   become: yes

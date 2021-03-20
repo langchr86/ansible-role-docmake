@@ -1,5 +1,10 @@
 ---
 
+- name: Install latex for metropolis theme
+  become: yes
+  package:
+    name: texlive
+
 - name: Install FiraSans
   become: yes
   shell: |
