@@ -6,6 +6,14 @@ ansible-role-docmake
 Companion ansible role for [docmake](https://github.com/langchr86/docmake) to install needed tools.
 
 
+Requirements
+------------
+
+This role should work on most linux distributions.
+Tested on Ubuntu and Debian.
+See [`ansible_run.yml`](.github/workflows/ansible_run.yml) for more information about CI-testing.
+
+
 Role Variables
 --------------
 
