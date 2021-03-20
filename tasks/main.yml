@@ -8,29 +8,32 @@
     - make
     - cmake
     - unzip
+    - wget
 
 - name: Evaluate cmake install prefix
   shell: |
-    cd /tmp
-    git clone https://github.com/langchr86/docmake.git
-    cmake -L docmake/CMakeLists.txt | grep CMAKE_INSTALL_PREFIX | cut -d "=" -f2
-    cd /tmp
-    rm -rf /tmp/docmake
+    cd /tmp \
+    && rm -rf /tmp/docmake \
+    && git clone https://github.com/langchr86/docmake.git \
+    && cmake -L docmake/CMakeLists.txt | grep CMAKE_INSTALL_PREFIX | cut -d "=" -f2 \
+    && cd /tmp \
+    && rm -rf /tmp/docmake
   register: cmake_install_prefix
   changed_when: False
 
 - name: Install docmake modules
   become: yes
   shell: |
-    cd /tmp
-    git clone https://github.com/langchr86/docmake.git
-    cd docmake
-    mkdir build
-    cd build
-    cmake ..
-    make install
-    cd /tmp
-    rm -rf /tmp/docmake
+    cd /tmp \
+    && rm -rf /tmp/docmake \
+    && git clone https://github.com/langchr86/docmake.git \
+    && cd docmake \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make install \
+    && cd /tmp \
+    && rm -rf /tmp/docmake
   args:
     creates: "{{ cmake_install_prefix.stdout }}/lib/cmake/docmake/helpers.cmake"
 
