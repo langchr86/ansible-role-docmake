@@ -28,6 +28,7 @@
     && rm -rf /tmp/docmake \
     && git clone https://github.com/langchr86/docmake.git \
     && cd docmake \
+    && git checkout {{ docmake_version }} \
     && mkdir build \
     && cd build \
     && cmake .. \

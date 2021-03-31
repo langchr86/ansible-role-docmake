@@ -16,6 +16,7 @@ tikz_uml: off
 
 additional_packages: []   # list of arbitrary other tools
 
+docmake_version: "master"
 nodejs_version: "10"
 drawio_version: "14.1.8"
 pandoc_version: "2.12"
