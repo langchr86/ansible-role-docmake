@@ -5,6 +5,7 @@
 - command: which npm
   register: which_npm
   changed_when: False
+  failed_when: False
 
 - name: Install npm for markdownlint
   become: yes
