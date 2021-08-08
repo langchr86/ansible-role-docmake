@@ -9,6 +9,7 @@
     - cmake
     - unzip
     - wget
+  when: install_essential_tools
 
 - name: Evaluate cmake install prefix
   shell: |

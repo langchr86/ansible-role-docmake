@@ -14,6 +14,8 @@ texlive_additional: off
 texlive_min: off
 tikz_uml: off
 
+install_essential_tools: on
+
 additional_packages: []   # list of arbitrary other tools
 
 docmake_version: "master"
