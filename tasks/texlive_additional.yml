@@ -2,7 +2,9 @@
 
 - name: Install additional latex tools
   become: yes
-  package: name="{{ item }}"
+  apt:
+    name: "{{ item }}"
+    install_recommends: no
   with_items:
     - texlive-plain-generic
     - texlive-fonts-extra
