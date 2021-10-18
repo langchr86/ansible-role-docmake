@@ -19,6 +19,7 @@ install_essential_tools: on
 additional_packages: []   # list of arbitrary other tools
 
 docmake_version: "master"
-nodejs_version: "10"
 drawio_version: "14.1.8"
+markdownlint_version: "0.28.1"
+nodejs_version: "10"
 pandoc_version: "2.12"
