@@ -1,3 +1,6 @@
 #! /bin/bash -e
 
-docker push ghcr.io/langchr86/docmake:latest
+HASH=$(git rev-parse --short HEAD)
+
+docker push "ghcr.io/langchr86/docmake:${HASH}"
+docker push "ghcr.io/langchr86/docmake:latest"
