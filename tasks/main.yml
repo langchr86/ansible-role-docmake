@@ -2,13 +2,13 @@
 
 - name: Install essential tools
   become: yes
-  package: name="{{ item }}"
-  with_items:
-    - git
-    - make
-    - cmake
-    - unzip
-    - wget
+  package:
+    name:
+      - git
+      - make
+      - cmake
+      - unzip
+      - wget
   when: install_essential_tools
 
 - name: Evaluate cmake install prefix
@@ -65,6 +65,5 @@
 
 - name: Additional packages
   become: yes
-  package: name="{{ item }}"
-  with_items:
-    "{{ additional_packages }}"
+  package:
+    name: "{{ additional_packages }}"

@@ -9,18 +9,17 @@
 - name: Install draw.io dependencies
   become: yes
   package:
-    name: "{{ item }}"
-  with_items:
-    - libgtk-3-0
-    - libnotify4
-    - libnss3
-    - libxss1
-    - libxtst6
-    - xdg-utils
-    - libatspi2.0-0
-    - libuuid1
-    - libappindicator3-1
-    - libsecret-1-0
+    name:
+      - libgtk-3-0
+      - libnotify4
+      - libnss3
+      - libxss1
+      - libxtst6
+      - xdg-utils
+      - libatspi2.0-0
+      - libuuid1
+      - libappindicator3-1
+      - libsecret-1-0
   when: which_drawio.rc != 0
 
 - name: "Install drawio {{ drawio_version }}"

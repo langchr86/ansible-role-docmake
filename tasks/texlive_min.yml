@@ -3,12 +3,11 @@
 - name: Install minimal needed latex tools
   become: yes
   apt:
-    name: "{{ item }}"
     install_recommends: no
-  with_items:
-    - texlive-base
-    - texlive-pictures
-    - texlive-latex-recommended
+    name:
+      - texlive-base
+      - texlive-pictures
+      - texlive-latex-recommended
 
 - name: Install latin modern latex packet
   become: yes
