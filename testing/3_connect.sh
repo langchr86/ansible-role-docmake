@@ -1,3 +1,3 @@
 #! /bin/bash -e
 
-docker exec -it test-container /bin/bash
+podman exec -it test-container /bin/bash

@@ -4,10 +4,8 @@ SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
 distro=${1:-ubuntu-focal}
 
-docker run \
+podman run \
   --detach \
-  --privileged \
-  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
   --volume="${SCRIPT_DIR}/../":/etc/ansible/roles/ansible-role-docmake:ro \
   --name=test-container \
   ${distro}:ansible

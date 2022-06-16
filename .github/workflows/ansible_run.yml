@@ -12,15 +12,19 @@ jobs:
           - ubuntu-focal
           - debian-buster
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Install podman
+        run: |
+          sudo apt install podman
 
       - name: System information
         run: |
           uname -a
           lsb_release -a
-          sudo docker --version
+          podman --version
 
       - name: Prepare and run container
         run: |
@@ -29,7 +33,7 @@ jobs:
 
       - name: Test ansible
         run: |
-          sudo docker exec test-container /etc/ansible/roles/ansible-role-docmake/testing/4_test.sh --idempotence
+          sudo podman exec test-container /etc/ansible/roles/ansible-role-docmake/testing/4_test.sh --idempotence
 
       - name: Cleanup
         run: |

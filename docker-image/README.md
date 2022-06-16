@@ -1,7 +1,7 @@
-docmake docker image
-====================
+docmake container image
+=======================
 
-The full installation of ansible-role-docmake is also available as docker image.
+The full installation of ansible-role-docmake is also available as container image.
 
 Use with URI: `ghcr.io/langchr86/docmake:latest`
 

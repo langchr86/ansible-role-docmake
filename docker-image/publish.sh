@@ -1,3 +1,3 @@
 #! /bin/bash -e
 
-docker push ghcr.io/langchr86/docmake:latest
+podman push ghcr.io/langchr86/docmake:latest

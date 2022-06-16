@@ -1,5 +1,5 @@
 #! /bin/bash -e
 
-docker rm -f test-container
+podman rm -f test-container
 
-docker image prune --force
+podman image prune --force
