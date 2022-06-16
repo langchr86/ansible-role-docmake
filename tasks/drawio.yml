@@ -25,5 +25,5 @@
 - name: "Install drawio {{ drawio_version }}"
   become: yes
   apt:
-    deb: https://github.com/jgraph/drawio-desktop/releases/download/v{{ drawio_version }}/draw.io-amd64-{{ drawio_version }}.deb
+    deb: https://github.com/jgraph/drawio-desktop/releases/download/v{{ drawio_version }}/drawio-amd64-{{ drawio_version }}.deb
   when: which_drawio.rc != 0
