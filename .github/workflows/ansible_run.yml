@@ -10,6 +10,7 @@ jobs:
         distro:
           - ubuntu-bionic
           - ubuntu-focal
+          - ubuntu-jammy
           - debian-buster
 
     runs-on: ubuntu-22.04

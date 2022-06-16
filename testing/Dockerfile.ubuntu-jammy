@@ -1,0 +1,17 @@
+FROM ubuntu:jammy
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    software-properties-common \
+    systemd \
+    ansible \
+  && apt-get clean \
+  && apt-get autoclean \
+  && apt-get autoremove \
+  && rm -rf /var/lib/apt/lists/*
+
+# prepare ansible inventory file
+RUN mkdir -p /etc/ansible/ \
+  && echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+
+ENTRYPOINT ["/bin/systemd"]
