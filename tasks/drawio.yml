@@ -20,6 +20,8 @@
       - libuuid1
       - libappindicator3-1
       - libsecret-1-0
+      - libgbm1
+      - libasound2
   when: which_drawio.rc != 0
 
 - name: "Install drawio {{ drawio_version }}"
