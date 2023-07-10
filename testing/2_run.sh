@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-distro=${1:-ubuntu-focal}
+distro=${1:-ubuntu-jammy}
 
 podman run \
   --detach \
