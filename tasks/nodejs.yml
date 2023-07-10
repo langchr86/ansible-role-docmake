@@ -15,15 +15,11 @@
 - name: Download and prepare node.js (deb)
   become: yes
   shell: curl -fsSL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | bash -
-  args:
-    warn: False
   when: which_node.rc != 0 and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
 
 - name: Download and prepare node.js (rpm)
   become: yes
   shell: curl -fsSL https://rpm.nodesource.com/setup_{{ nodejs_version }}.x | bash -
-  args:
-    warn: False
   when: which_node.rc != 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
 
 - name: "Install node.js {{ nodejs_version }}"
