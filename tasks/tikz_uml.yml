@@ -19,6 +19,7 @@
   ansible.builtin.file:
     path: "{{ latex_package_dir }}"
     state: directory
+    mode: "u+rw"
 
 - name: Set tikz-uml directory variables
   become: true
@@ -29,8 +30,10 @@
   ansible.builtin.file:
     path: "{{ tikz_uml_dir }}"
     state: directory
+    mode: "u+rw"
 
 - name: Install tikz-uml
   ansible.builtin.copy:
     src: "tikz-uml.sty"
     dest: "{{ tikz_uml_dir }}/tikz-uml.sty"
+    mode: "u+r"
