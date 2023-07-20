@@ -10,5 +10,4 @@ jobs:
 
       - name: Build docker image
         run: |
-          cd docker-image
-          ./build.sh
+          docker-image/build.sh
