@@ -3,11 +3,11 @@
 - name: Check if drawio already installed
   command: which drawio
   register: which_drawio
-  changed_when: False
-  failed_when: False
+  changed_when: false
+  failed_when: false
 
 - name: Install draw.io dependencies
-  become: yes
+  become: true
   package:
     name:
       - libgtk-3-0
@@ -25,7 +25,7 @@
   when: which_drawio.rc != 0
 
 - name: "Install drawio {{ drawio_version }}"
-  become: yes
+  become: true
   apt:
     deb: https://github.com/jgraph/drawio-desktop/releases/download/v{{ drawio_version }}/drawio-amd64-{{ drawio_version }}.deb
   when: which_drawio.rc != 0

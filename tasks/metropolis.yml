@@ -1,12 +1,12 @@
 ---
 
 - name: Install latex for metropolis theme
-  become: yes
+  become: true
   package:
     name: texlive
 
 - name: Install FiraSans
-  become: yes
+  become: true
   shell: |
     cd /tmp \
     && rm -rf /tmp/fira \
@@ -24,7 +24,7 @@
     creates: /usr/share/fonts/opentype/fira/FiraCode-Regular.otf
 
 - name: Install metropolis theme
-  become: yes
+  become: true
   shell: |
     cd /tmp \
     && rm -rf /tmp/metropolis \

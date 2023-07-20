@@ -1,6 +1,6 @@
 ---
 
 - name: Install gpp
-  become: yes
+  become: true
   package:
     name: gpp

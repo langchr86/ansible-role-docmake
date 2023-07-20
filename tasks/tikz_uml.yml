@@ -1,17 +1,17 @@
 ---
 
 - name: Install kpsewhich
-  become: yes
+  become: true
   package:
     name: texlive
 
 - name: Evaluate latex home
   shell: "kpsewhich -var-value=TEXMFHOME"
   register: latex_home_output
-  changed_when: False
+  changed_when: false
 
 - name: Set latex directory variables
-  become: yes
+  become: true
   set_fact:
     latex_package_dir: "{{ latex_home_output.stdout }}/tex/latex"
 
@@ -21,7 +21,7 @@
     state: directory
 
 - name: Set tikz-uml directory variables
-  become: yes
+  become: true
   set_fact:
     tikz_uml_dir: "{{ latex_package_dir }}/tikzuml-v1.0-2016-03-29"
 

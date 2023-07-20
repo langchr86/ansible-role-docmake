@@ -3,27 +3,27 @@
 - name: Check if node.js already installed
   command: which node
   register: which_node
-  changed_when: False
-  failed_when: False
+  changed_when: false
+  failed_when: false
 
 - name: Install curl for node.js installation
-  become: yes
+  become: true
   package:
     name: curl
   when: which_node.rc != 0
 
 - name: Download and prepare node.js (deb)
-  become: yes
+  become: true
   shell: curl -fsSL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | bash -
   when: which_node.rc != 0 and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
 
 - name: Download and prepare node.js (rpm)
-  become: yes
+  become: true
   shell: curl -fsSL https://rpm.nodesource.com/setup_{{ nodejs_version }}.x | bash -
   when: which_node.rc != 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
 
 - name: "Install node.js {{ nodejs_version }}"
-  become: yes
+  become: true
   package:
     name: nodejs
   when: which_node.rc != 0

@@ -1,7 +1,7 @@
 ---
 
 - name: Install essential tools
-  become: yes
+  become: true
   package:
     name:
       - git
@@ -20,10 +20,10 @@
     && cd /tmp \
     && rm -rf /tmp/docmake
   register: cmake_install_prefix
-  changed_when: False
+  changed_when: false
 
 - name: Install docmake modules
-  become: yes
+  become: true
   shell: |
     cd /tmp \
     && rm -rf /tmp/docmake \
@@ -64,6 +64,6 @@
   when: pandoc
 
 - name: Additional packages
-  become: yes
+  become: true
   package:
     name: "{{ additional_packages }}"

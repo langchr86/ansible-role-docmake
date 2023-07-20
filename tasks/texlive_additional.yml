@@ -1,9 +1,9 @@
 ---
 
 - name: Install additional latex tools
-  become: yes
+  become: true
   apt:
-    install_recommends: no
+    install_recommends: false
     name:
       - texlive-plain-generic
       - texlive-fonts-extra

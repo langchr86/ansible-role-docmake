@@ -1,15 +1,15 @@
 ---
 
 - name: Install minimal needed latex tools
-  become: yes
+  become: true
   apt:
-    install_recommends: no
+    install_recommends: false
     name:
       - texlive-base
       - texlive-pictures
       - texlive-latex-recommended
 
 - name: Install latin modern latex packet
-  become: yes
+  become: true
   package:
     name: lmodern

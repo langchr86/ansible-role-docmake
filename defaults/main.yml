@@ -5,16 +5,16 @@
 
 
 # Additional features that can be installed.
-pandoc: off
-drawio: off
-gpp: off
-markdownlint: off
-metropolis: off
-texlive_additional: off
-texlive_min: off
-tikz_uml: off
+pandoc: false
+drawio: false
+gpp: false
+markdownlint: false
+metropolis: false
+texlive_additional: false
+texlive_min: false
+tikz_uml: false
 
-install_essential_tools: on
+install_essential_tools: true
 
 additional_packages: []   # list of arbitrary other tools
 

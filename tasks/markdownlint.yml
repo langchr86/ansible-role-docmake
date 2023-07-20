@@ -4,19 +4,19 @@
 
 - command: which npm
   register: which_npm
-  changed_when: False
-  failed_when: False
+  changed_when: false
+  failed_when: false
 
 - name: Install npm for markdownlint
-  become: yes
+  become: true
   package:
     name: npm
   when: which_npm.rc != 0
 
 # https://github.com/igorshubovych/markdownlint-cli
 - name: Install markdownlint
-  become: yes
+  become: true
   npm:
     name: markdownlint-cli
-    global: yes
+    global: true
     version: "{{ markdownlint_version }}"
