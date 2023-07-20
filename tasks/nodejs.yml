@@ -16,11 +16,13 @@
   become: true
   ansible.builtin.shell: curl -fsSL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | bash -
   when: which_node.rc != 0 and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
+  changed_when: true
 
 - name: Download and prepare node.js (rpm)
   become: true
   ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_{{ nodejs_version }}.x | bash -
   when: which_node.rc != 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
+  changed_when: true
 
 - name: "Install node.js {{ nodejs_version }}"
   become: true
