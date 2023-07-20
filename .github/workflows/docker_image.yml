@@ -1,0 +1,14 @@
+name: docker_image
+
+on: [push, pull_request]
+
+jobs:
+  docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build docker image
+        run: |
+          cd docker-image
+          ./build.sh
