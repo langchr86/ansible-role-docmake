@@ -4,7 +4,8 @@
   pre_tasks:
     - name: Update package manager repositories
       become: true
-      package: update_cache=yes
+      ansible.builtin.package:
+        update_cache: true
       changed_when: false
 
   roles:

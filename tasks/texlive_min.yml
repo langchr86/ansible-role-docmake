@@ -2,7 +2,7 @@
 
 - name: Install minimal needed latex tools
   become: true
-  apt:
+  ansible.builtin.apt:
     install_recommends: false
     name:
       - texlive-base
@@ -11,5 +11,5 @@
 
 - name: Install latin modern latex packet
   become: true
-  package:
+  ansible.builtin.package:
     name: lmodern

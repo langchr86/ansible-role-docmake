@@ -1,22 +1,22 @@
 ---
 
-- include_tasks: tasks/nodejs.yml
+- ansible.builtin.include_tasks: tasks/nodejs.yml
 
-- command: which npm
+- ansible.builtin.command: which npm
   register: which_npm
   changed_when: false
   failed_when: false
 
 - name: Install npm for markdownlint
   become: true
-  package:
+  ansible.builtin.package:
     name: npm
   when: which_npm.rc != 0
 
 # https://github.com/igorshubovych/markdownlint-cli
 - name: Install markdownlint
   become: true
-  npm:
+  community.general.npm:
     name: markdownlint-cli
     global: true
     version: "{{ markdownlint_version }}"

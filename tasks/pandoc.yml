@@ -2,20 +2,20 @@
 
 - name: Install pandoc dependencies
   become: true
-  package:
+  ansible.builtin.package:
     name:
       - libc6
       - libgmp10
       - zlib1g
 
 - name: Check if pandoc already installed
-  command: which pandoc
+  ansible.builtin.command: which pandoc
   register: which_pandoc
   changed_when: false
   failed_when: false
 
 - name: "Install pandoc {{ pandoc_version }}"
   become: true
-  apt:
+  ansible.builtin.apt:
     deb: https://github.com/jgm/pandoc/releases/download/{{ pandoc_version }}/pandoc-{{ pandoc_version }}-1-amd64.deb
   when: which_pandoc.rc != 0

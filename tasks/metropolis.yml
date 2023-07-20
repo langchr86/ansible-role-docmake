@@ -2,12 +2,12 @@
 
 - name: Install latex for metropolis theme
   become: true
-  package:
+  ansible.builtin.package:
     name: texlive
 
 - name: Install FiraSans
   become: true
-  shell: |
+  ansible.builtin.shell: |
     cd /tmp \
     && rm -rf /tmp/fira \
     && mkdir -p fira \
@@ -25,7 +25,7 @@
 
 - name: Install metropolis theme
   become: true
-  shell: |
+  ansible.builtin.shell: |
     cd /tmp \
     && rm -rf /tmp/metropolis \
     && mkdir -p metropolis \

@@ -2,35 +2,35 @@
 
 - name: Install kpsewhich
   become: true
-  package:
+  ansible.builtin.package:
     name: texlive
 
 - name: Evaluate latex home
-  shell: "kpsewhich -var-value=TEXMFHOME"
+  ansible.builtin.shell: "kpsewhich -var-value=TEXMFHOME"
   register: latex_home_output
   changed_when: false
 
 - name: Set latex directory variables
   become: true
-  set_fact:
+  ansible.builtin.set_fact:
     latex_package_dir: "{{ latex_home_output.stdout }}/tex/latex"
 
 - name: Prepare folder for local latex packages
-  file:
+  ansible.builtin.file:
     path: "{{ latex_package_dir }}"
     state: directory
 
 - name: Set tikz-uml directory variables
   become: true
-  set_fact:
+  ansible.builtin.set_fact:
     tikz_uml_dir: "{{ latex_package_dir }}/tikzuml-v1.0-2016-03-29"
 
 - name: Prepare folder tikz-uml
-  file:
+  ansible.builtin.file:
     path: "{{ tikz_uml_dir }}"
     state: directory
 
 - name: Install tikz-uml
-  copy:
+  ansible.builtin.copy:
     src: "tikz-uml.sty"
     dest: "{{ tikz_uml_dir }}/tikz-uml.sty"

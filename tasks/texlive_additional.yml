@@ -2,7 +2,7 @@
 
 - name: Install additional latex tools
   become: true
-  apt:
+  ansible.builtin.apt:
     install_recommends: false
     name:
       - texlive-plain-generic
