@@ -4,6 +4,9 @@ ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
 
 idempotence=$1
 
+echo "Install collections"
+ansible-galaxy collection install community.general
+
 echo "Running syntax checks"
 env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/ansible-role-docmake/testing/playbook.yml --syntax-check
 
