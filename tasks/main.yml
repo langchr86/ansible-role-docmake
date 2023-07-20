@@ -11,8 +11,8 @@
       - wget
   when: install_essential_tools
 
-- name: Evaluate cmake install prefix
-  ansible.builtin.shell: |
+- name: Evaluate cmake install prefix  # noqa fqcn
+  shell: |
     cd /tmp \
     && rm -rf /tmp/docmake \
     && git clone https://github.com/langchr86/docmake.git \
@@ -22,9 +22,9 @@
   register: cmake_install_prefix
   changed_when: false
 
-- name: Install docmake modules
+- name: Install docmake modules  # noqa fqcn
   become: true
-  ansible.builtin.shell: |
+  shell: |
     cd /tmp \
     && rm -rf /tmp/docmake \
     && git clone https://github.com/langchr86/docmake.git \
@@ -39,28 +39,28 @@
   args:
     creates: "{{ cmake_install_prefix.stdout }}/lib/cmake/docmake/helpers.cmake"
 
-- ansible.builtin.import_tasks: tasks/texlive_min.yml
+- import_tasks: tasks/texlive_min.yml # noqa fqcn
   when: texlive_min
 
-- ansible.builtin.import_tasks: tasks/texlive_additional.yml
+- import_tasks: tasks/texlive_additional.yml  # noqa fqcn
   when: texlive_additional
 
-- ansible.builtin.import_tasks: tasks/metropolis.yml
+- import_tasks: tasks/metropolis.yml  # noqa fqcn
   when: metropolis
 
-- ansible.builtin.import_tasks: tasks/tikz_uml.yml
+- import_tasks: tasks/tikz_uml.yml  # noqa fqcn
   when: tikz_uml
 
-- ansible.builtin.import_tasks: tasks/drawio.yml
+- import_tasks: tasks/drawio.yml  # noqa fqcn
   when: drawio
 
-- ansible.builtin.import_tasks: tasks/gpp.yml
+- import_tasks: tasks/gpp.yml # noqa fqcn
   when: gpp
 
-- ansible.builtin.import_tasks: tasks/markdownlint.yml
+- import_tasks: tasks/markdownlint.yml  # noqa fqcn
   when: markdownlint
 
-- ansible.builtin.import_tasks: tasks/pandoc.yml
+- import_tasks: tasks/pandoc.yml  # noqa fqcn
   when: pandoc
 
 - name: Additional packages

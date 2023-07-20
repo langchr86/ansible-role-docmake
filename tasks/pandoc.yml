@@ -9,7 +9,7 @@
       - zlib1g
 
 - name: Check if pandoc already installed
-  ansible.builtin.command: which pandoc
+  command: which pandoc # noqa fqcn
   register: which_pandoc
   changed_when: false
   failed_when: false

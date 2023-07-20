@@ -1,7 +1,7 @@
 ---
 
 - name: Check if node.js already installed
-  ansible.builtin.command: which node
+  command: which node # noqa fqcn
   register: which_node
   changed_when: false
   failed_when: false
@@ -14,13 +14,13 @@
 
 - name: Download and prepare node.js (deb)
   become: true
-  ansible.builtin.shell: curl -fsSL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | bash -
+  shell: curl -fsSL https://deb.nodesource.com/setup_{{ nodejs_version }}.x | bash -  # noqa fqcn
   when: which_node.rc != 0 and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
   changed_when: true
 
 - name: Download and prepare node.js (rpm)
   become: true
-  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_{{ nodejs_version }}.x | bash -
+  shell: curl -fsSL https://rpm.nodesource.com/setup_{{ nodejs_version }}.x | bash -  # noqa fqcn
   when: which_node.rc != 0 and (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux')
   changed_when: true
 

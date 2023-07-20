@@ -6,7 +6,7 @@
     name: texlive
 
 - name: Evaluate latex home
-  ansible.builtin.shell: "kpsewhich -var-value=TEXMFHOME"
+  shell: "kpsewhich -var-value=TEXMFHOME" # noqa fqcn
   register: latex_home_output
   changed_when: false
 

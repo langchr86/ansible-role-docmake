@@ -5,9 +5,9 @@
   ansible.builtin.package:
     name: texlive
 
-- name: Install FiraSans
+- name: Install FiraSans  # noqa fqcn
   become: true
-  ansible.builtin.shell: |
+  shell: |
     cd /tmp \
     && rm -rf /tmp/fira \
     && mkdir -p fira \
@@ -23,9 +23,9 @@
   args:
     creates: /usr/share/fonts/opentype/fira/FiraCode-Regular.otf
 
-- name: Install metropolis theme
+- name: Install metropolis theme  # noqa fqcn
   become: true
-  ansible.builtin.shell: |
+  shell: |
     cd /tmp \
     && rm -rf /tmp/metropolis \
     && mkdir -p metropolis \

@@ -1,8 +1,9 @@
 ---
 
-- ansible.builtin.include_tasks: tasks/nodejs.yml
+- import_tasks: tasks/nodejs.yml  # noqa fqcn
 
-- ansible.builtin.command: which npm
+- name: Check if npm already installed
+  command: which npm  # noqa fqcn
   register: which_npm
   changed_when: false
   failed_when: false
