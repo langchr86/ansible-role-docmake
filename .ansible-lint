@@ -1,0 +1,17 @@
+exclude_paths:
+  - roles/swapfile
+  - roles/homeassistant/files/
+
+skip_list:
+  - command-instead-of-module
+  - command-instead-of-shell
+  - ignore-errors
+  - line-length
+  - name[casing]
+  - name[missing]
+  - name[play]
+  - name[template]
+  - no-handler
+  - risky-shell-pipe
+  - var-naming
+  - yaml[line-length]

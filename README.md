@@ -2,6 +2,7 @@ ansible-role-docmake
 ====================
 
 [![Software Build](https://github.com/langchr86/ansible-role-docmake/workflows/ansible_run/badge.svg)](https://github.com/langchr86/ansible-role-docmake/actions?query=workflow%3Aansible_run)
+[![Ansible Linter](https://github.com/langchr86/ansible-role-docmake/workflows/ansible_lint/badge.svg)](https://github.com/langchr86/ansible-role-docmake/actions?query=workflow%3Aansible_lint)
 
 Companion ansible role for [docmake](https://github.com/langchr86/docmake) to install needed tools.
 
