@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: docmake
+  namespace: langchr86
   author: Christian Lang, lang.chr86@gmail.com
   description: Companion ansible role for github.com/langchr86/docmake to install needed tools.
 
